@@ -10,4 +10,4 @@ A daily planner that uses Moment.js to display the current day and hour of viewi
 
 * A save button that saves events in local storage so the planner can retain these events upon refreshing the page.
 
-View the application here: 
+View the application here:  https://mattjavier.github.io/day-planner/
