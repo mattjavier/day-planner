@@ -1,55 +1,71 @@
-let days = [
+let timeBlocks = [
   {
-    time: '9',
+    time: 9,
     meridies: 'am',
     isDone: false
   },
   {
-    time: '10',
+    time: 10,
     meridies: 'am',
     isDone: false
   },
   {
-    time: '11',
+    time: 11,
     meridies: 'am',
     isDone: false
   }, 
   {
-    time: '11',
-    meridies: 'am',
-    isDone: false
-  },
-  {
-    time: '12',
+    time: 12,
     meridies: 'pm',
     isDone: false
   },
   {
-    time: '1',
+    time: 13,
     meridies: 'pm',
     isDone: false
   },
   {
-    time: '2',
+    time: 14,
     meridies: 'pm',
     isDone: false
   },
   {
-    time: '3',
+    time: 15,
     meridies: 'pm',
     isDone: false
   },
   {
-    time: '4',
+    time: 16,
     meridies: 'pm',
     isDone: false
   },
   {
-    time: '5',
+    time: 17,
     meridies: 'pm',
     isDone: false
   }
 ]
 
 $('#currentDay').text(moment().format('dddd, MMMM Do'))
+
+for (let i = 0; i < timeBlocks.length; i++) {
+  // if hour has already past
+  if (moment().hour() > timeBlocks[i].time) {
+    $(`#text${i+1}`).addClass('past')
+  } else if (moment().hour() < timeBlocks[i].time) {
+    // if hour has yet to come
+    $(`#text${i+1}`).addClass('future')
+  } else {
+    // if it is the current hour
+    $(`#text${i+1}`).addClass('present')
+  }
+}
+
+function showSchedule() {
+  let schedule = JSON.parse(localStorage.getItem('schedule')) || []
+
+  
+}
+
+showSchedule()
 
